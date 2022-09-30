@@ -1,0 +1,4 @@
+type: PACKAGE
+version: 1.0.2
+name: Multicluster Action package
+description: Action package containing scripts to enable easy Multicluster deployment

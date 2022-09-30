@@ -1,0 +1,43 @@
+type: ACTION
+action-type: CHANGECONTROL_CUSTOM
+language: PYTHON_3
+name: Push Secondary Cluster Token
+description: Retrieves the secondary cluster token and stages it in /tmp/secondary-token on the device awaiting TerminAttr to restart.
+file: script.py
+static-params: []
+dynamic-params:
+  - name: DeviceID
+    description: The ID of the device to run this script against
+    required: true
+    hidden: false
+  - name: backup_cvp_1
+    description: Backup Cluster Node 1
+    required: true
+    hidden: false
+    default: "10.88.160.57"
+  - name: backup_cvp_2
+    description: Backup Cluster Node 2
+    required: false
+    hidden: false
+    default: ""
+  - name: backup_cvp_3
+    description: Backup Cluster Node 3
+    required: false
+    hidden: false
+    default: ""
+  - name: expiry
+    description: Time permitted for TerminAttr to complete certificate based enrollment with the secondary cluster.
+    required: true
+    hidden: false
+    default: "1h"
+  - name: filename
+    description: Filename of where the token will be stored on the switch filesystem.
+    required: true
+    hidden: true
+    default: "/tmp/secondary-token"
+  - name: auth
+    description: API Service Account Token for authenticating to the secondary cluster
+    default: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcxMzcxNzgyMzM1OTM2NTk1NTcsImRzbiI6ImN2cC1wcmltYXJ5IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTY5NTk2MzU5OSwiaWF0IjoxNjY0NDkxODQxLCJzaWQiOiI4MjM4YmNjMmVkNjUxYzQ5NGRhMDQ2MmVjZmVlYjViMDRiNDY2Y2QxMzcxZWI2NDczYmU3Y2ZjYjNmNWI1ZjZiLUMzdzh1VmRUREcwVUhodkRSWkVveWlYYVJGSUZEd3NDeXVUbWhwRE8ifQ.xsB86yLA_M8dH8aKOdVKcweCfzJFJtiTYnBhzQs0AsFKi9qorgOP7TuHJ1qOeIU0xPv28G4TtUhu7jmOzNxHSpV6ZTT7zxKSc0pk1X7gwyEufy4WtFN5munbXqqJfgHxsPXkfCt26bvrVNKvjDfcreaLBXWVLj9uo3Z7w4fdTIHmkpLnEtlUPjgc8CugWqxakKIDNxFg1aUjlcpyU2aD-j2mmVCs9REZwt3YJVHcNAIfX2kyacmAI2pUkLROEdM8kEtqhsKGJtZOSeYJ_eVX8oHbB8HVNgPmNXgq32s65DA5iEnabm6c243h0Q_kRCy9nV9hyINF1-QlejoWQIyD-7Ma9k-0pTEe-9numvvnU0JfZ4AdWIrREjFs0zFApvRw2C81FBe1RT4Sn21ulW_JMej8nkbRqaGmM6ujff6VcPDel8M53Hni6v4d9N3_MUcI0qQhpHzZX7GEttiPyuUHhRqa98kCx8wHDoN5-6KxVjAVP27xQnJwV3IzbE-HbGJrbEMr-Z5fBJQfao3Xlhh1oSiR81OMBmHPMidIN6F9iqLWw6KBTcAntrCXyoltnYArMl5d5OzH565CfH1UkHbf4JjiLCC2x4g9phIIU49WVoSP8f3UShHPGuLjhFW9Bo57asVGrTYkpW-i8NJzcdiYk2U8NJwSPP7i9L99X5dvidM"
+    required: true
+    hidden: true
+
