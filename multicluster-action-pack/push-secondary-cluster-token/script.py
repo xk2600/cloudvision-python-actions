@@ -68,7 +68,7 @@ ctx.alog('token retrieved. Attempting to push to device. \n token: ' + token)
 if token is not None:
     cmds = [
         "enable",
-        {"cmd": f"copy terminal: file:{filename}", "input": token},
+        {"cmd": f"copy terminal: file:{filename}", "input": token}
     ]
     cmdResponses: List[Dict] = ctx.runDeviceCmds(cmds)
     # Iterate through the list of responses for the commands, and if an error occurred in
