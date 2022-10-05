@@ -1,0 +1,43 @@
+type: ACTION
+action-type: CHANGECONTROL_CUSTOM
+language: PYTHON_3
+name: Push Secondary Cluster Token
+description: Retrieves the secondary cluster token and stages it in /tmp/secondary-token on the device awaiting TerminAttr to restart.
+file: script.py
+static-params: []
+dynamic-params:
+  - name: DeviceID
+    description: The ID of the device to run this script against
+    required: true
+    hidden: false
+  - name: backup_cvp_1
+    description: Backup Cluster Node 1
+    required: true
+    hidden: false
+    default: "10.88.160.57"
+  - name: backup_cvp_2
+    description: Backup Cluster Node 2
+    required: false
+    hidden: false
+    default: ""
+  - name: backup_cvp_3
+    description: Backup Cluster Node 3
+    required: false
+    hidden: false
+    default: ""
+  - name: expiry
+    description: Time permitted for TerminAttr to complete certificate based enrollment with the secondary cluster.
+    required: true
+    hidden: false
+    default: "1h"
+  - name: filename
+    description: Filename of where the token will be stored on the switch filesystem.
+    required: true
+    hidden: true
+    default: "/tmp/secondary-token"
+  - name: auth
+    description: API Service Account Token for authenticating to the secondary cluster
+    default: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjcxMzk4NzM5MjY4NjczMjA5ODEsImRzbiI6ImN2cC1wcmltYXJ5IiwiZHN0IjoiYWNjb3VudCIsImV4cCI6MTY5NjIxMjk3MiwiaWF0IjoxNjY0OTM2MjA4LCJzaWQiOiIzMzhjYmM0M2ExYWEwYWI4Y2E1MWMyY2Y5MWFkNjJiOTM3MTFkZGFjMTMwOTFiMWM0NjhlYWM2YzM2NzI4ZmY1LXU2SXdfdEt2YmVKb1daM3RrcG11eGF1bC1rekVrVC13Um00SHBvcVMifQ.clHmak7CmsyBnIEmy9JRnnqddCGA5_jJXkHmRfZ7vif0_VI_DuwkS6UuC6ZwgZx77ytgphFlFDyBPVLJEk3ZC8ykcJyCOVHkgzRQmOR3lL7lG3g5WJV_tsc3AoB5whOAj3KmdTtuTy-QtS46QRc87Ld8cnuzyqP-Ysz_bM8QBqaDbqK0fiTG8FCBMaSLPiI0jAWeWXuziExdZ_VqtFbp_5JSHzxoOrrq70cSoW36GmkoaKikmxFJAWyeziovx3ZifNDVUMvGh3BMj3PrsMaAbrcaaIcuQzQE7mEoWeQy1ccT9tq1tGLM7w3PaA9dmIJ2MLbcvvJtTqLfrdNl2uWXEWKLXnx2_CyzZJAdZTtPTV_dPEF1t4weGZBddDg8vY9S1x1XqaGNLAXgHekor3LJ-Wiu1UN5k31-bEX1cBFy4wuT6nfquZ7t_DpgZcJRY7ZcfQ87dKtkx6Z5OFp_P-mQd37dhNE5XiAJKANoK8FwpWHcPHlEfQ94SvPc5Dm2qOzcdr8aJHGL4vZDsDG3Ne4z_6iDitiYFc1tuCa8CDyUKSUUOLFVQSArGgLByVfE4cGb1vQpaKi0l-778P-euI1-U--jiuDew_gJoahhpTXMx0yZS5XKmPez1N82o08nraQEaM1nkmOppjAC_5RiLjCpCfGGsE4S4BaJXcXISZATVZs"
+    required: true
+    hidden: true
+
