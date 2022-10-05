@@ -14,23 +14,17 @@ SECONDARY_CLUSTER=10.88.160.57
 #
 
 # BACKUP CVP
-echo "#### BACKING UP CVP ON PRIMARY CLUSTER ####"
-if cvpi backup cvp ; then
-   printf "\n\n#### BACKUP "
-else
-
-fi
-echo ""
+printf "\n#### BACKING UP CVP ON PRIMARY CLUSTER ####"
+cvpi backup cvpi
 
 # SYNC CVP BACKUP TO SECONDARY_CLUSTER
 FILES=`ls -t /data/cvpbackup/cvp.20* | head -1`
 FILES="$FILES $(ls -t /data/cvpbackup/cvp.eos* | head -1)"
-echo "#### COPYING BACKUP TO SECONDARY CLUSTER ####"
+printf "\n#### COPYING BACKUP TO SECONDARY CLUSTER ####"
 for FILE in $FILES; do
   scp ${FILE} root@${SECONDARY_CLUSTER}:${FILE}
 done
-echo ""
 
-echo "#### RESTORE ON SECONDARY CLUSTER ####"
+printf "\n#### RESTORE ON SECONDARY CLUSTER ####"
 ssh root@${SECONDARY_CLUSTER} "chown cvp:cvp /data/cvpbackup/* ; cvpi restore cvp ${FILES}"
-echo "#### COMPLETE ####"
+printf "\n#### SYNC PROCESS COMPLETE ####"
